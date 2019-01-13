@@ -11,6 +11,8 @@ Router.map(function() {
   this.route('course', { path: "/courses/:course_id" });
   this.route('users');
   this.route('user', { path: "/profile/:user_id" });
+  this.route('rounds');
+  this.route('rounds.new', { path: '/rounds/new' });
 });
 
 export default Router;

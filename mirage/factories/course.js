@@ -1,10 +1,10 @@
-import { Factory, faker } from 'ember-cli-mirage';
+import { Factory, faker, trait } from 'ember-cli-mirage';
 
 const minPar = 36;
 const maxPar = 68;
 
 export default Factory.extend({
-  name: faker.address.country,
+  name: faker.address.city,
   address: faker.address.streetAddress,
   city: faker.address.city,
   province: faker.address.stateAbbr,
@@ -15,5 +15,16 @@ export default Factory.extend({
   bannerImgUrl: faker.image.nature,
   par() {
     return Math.floor(Math.random()*(maxPar-minPar+1)+minPar);
+  },
+
+  withRounds: trait({
+    afterCreate(course, server) {
+
+      server.createList('round', 3, { course });
+    }
+  }),
+
+  afterCreate(course, server) {
+    server.createList('hole', 18, { course });
   }
 });

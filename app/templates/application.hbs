@@ -14,18 +14,31 @@
     <div id="content" class="flex-1 overflow-y-scroll">
       {{outlet}}
     </div>
-    <div id="footer" class="border h-16 pin-x pin-b bg-grey-light">
-      <div class="flex justify-around text-center">
-        <div class="pt-5">
+    <div id="footer" class="flex justify-around text-center items-center border h-16 pin-x pin-b bg-grey-light">
+      {{#ui-link 'users' as |link|}}
+        <div class="self-stretch pointer-events-auto">
           Rounds
         </div>
-        <div class="pt-5">
+      {{/ui-link}}
+
+      {{#ui-link 'users' as |link|}}
+        <div class="self-stretch pointer-events-auto" onclick={{action link.transitionTo}}>
           Users
         </div>
-        <div class="pt-5">
+      {{/ui-link}}
+
+      {{#ui-link 'user' '1' as |link|}}
+        <div class="self-stretch pointer-events-auto" onclick={{action link.transitionTo}}>
           Profile
         </div>
-      </div>
+      {{/ui-link}}
+
+      {{#ui-link 'rounds.new' as |link|}}
+        <div class="self-stretch pointer-events-auto" onclick={{action link.transitionTo}}>
+          {{!-- {{svg-jar "plus" class="stroke-current w-4 h-4 mr-1"}} --}}
+          New
+        </div>
+      {{/ui-link}}
     </div>
   </div>
 </div>
