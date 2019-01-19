@@ -3,6 +3,7 @@ import Controller from '@ember/controller';
 import { service } from '@ember-decorators/service';
 import { action } from '@ember-decorators/object';
 import { isEmpty } from '@ember/utils';
+import moment from 'moment';
 
 export default class NewRoundController extends Controller {
   @service store;
@@ -90,11 +91,22 @@ export default class NewRoundController extends Controller {
 
   @action
   async startRound() {
+    // create the round first
     let round = this.store.createRecord('round', {
+      createdAt: moment.utc().format(),
       players: this.selectedPlayers,
       course: this.selectedCourse
     });
     await round.save();
-    this.router.transitionTo('rounds.current', round);
+
+    // now for each player in the round create a scorecard
+    for (const player of this.selectedPlayers) {
+      await this.store.createRecord('scorecard', {
+        player: player,
+        round: round
+      });
+    }
+
+    this.router.transitionTo('round', round);
   }
 }

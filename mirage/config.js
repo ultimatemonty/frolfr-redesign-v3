@@ -16,7 +16,7 @@ export default function() {
   });
   this.get('users/:id');
 
-  this.post('rounds', (schema, request) => {
-    console.log(request.requestBody);
-  });
+  this.post('rounds');
+  this.get('rounds/:id');
+  this.post('scorecards');
 }
