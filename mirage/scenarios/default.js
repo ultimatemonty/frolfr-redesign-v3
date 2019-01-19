@@ -1,4 +1,6 @@
 export default function(server) {
-  server.createList('course', 10);
-  server.createList('user', 10);
+  let course = server.create('course');
+  let player = server.create('user');
+  let round = server.create('round', { course });
+  let scorecard = server.create('scorecard', { round, player });
 }
