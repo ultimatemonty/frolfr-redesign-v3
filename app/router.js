@@ -13,6 +13,7 @@ Router.map(function() {
   this.route('user', { path: "/profile/:user_id" });
   this.route('rounds');
   this.route('rounds.new', { path: '/rounds/new' });
+  this.route('rounds.current', { path: '/rounds/current' });
 });
 
 export default Router;

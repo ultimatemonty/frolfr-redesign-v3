@@ -1,21 +1,19 @@
 import { Factory, faker, trait } from 'ember-cli-mirage';
 
-const minPar = 36;
-const maxPar = 68;
-
 export default Factory.extend({
-  name: faker.address.city,
+  name() {
+    return faker.address.city();
+  },
   address: faker.address.streetAddress,
-  city: faker.address.city,
+  city() {
+    return faker.address.city();
+  },
   province: faker.address.stateAbbr,
   postalCode: faker.address.zipCode,
   countryCode: faker.address.countryCode,
   lat: faker.address.latitude,
   lng: faker.address.longitude,
   bannerImgUrl: faker.image.nature,
-  par() {
-    return Math.floor(Math.random()*(maxPar-minPar+1)+minPar);
-  },
 
   withRounds: trait({
     afterCreate(course, server) {
@@ -25,6 +23,13 @@ export default Factory.extend({
   }),
 
   afterCreate(course, server) {
-    server.createList('hole', 18, { course });
+    let holes = server.createList('hole', 18, { course });
+    let par = holes.reduce((a, b) => {
+      if (a.attrs) {
+        a = a.attrs.par;
+      }
+      return a + b.attrs.par;
+    });
+    server.schema.courses.find(course.id).update({ par: par });
   }
 });
