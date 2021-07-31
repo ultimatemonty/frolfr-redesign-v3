@@ -1,4 +1,3 @@
-
 import { Factory } from 'ember-cli-mirage';
 
 const minPar = 2;
@@ -22,6 +21,6 @@ export default Factory.extend({
   },
 
   par() {
-    return Math.floor(Math.random()*(maxPar-minPar+1)+minPar);
+    return Math.floor(Math.random() * (maxPar - minPar + 1) + minPar);
   },
-})
+});

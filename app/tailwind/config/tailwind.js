@@ -104,7 +104,7 @@ export default {
     visibility: ['responsive'],
     whitespace: ['responsive'],
     width: ['responsive'],
-    zIndex: ['responsive']
+    zIndex: ['responsive'],
   },
 
   /*
@@ -125,7 +125,7 @@ export default {
     container({
       // center: true,
       // padding: '1rem',
-    })
+    }),
   ],
 
   /*
@@ -141,6 +141,6 @@ export default {
   options: {
     prefix: '',
     important: false,
-    separator: ':'
-  }
+    separator: ':',
+  },
 };

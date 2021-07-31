@@ -1,4 +1,6 @@
-import { Factory, faker, trait } from 'ember-cli-mirage';
+import { Factory, trait } from 'ember-cli-mirage';
+
+import faker from 'faker';
 
 export default Factory.extend({
   name() {
@@ -17,9 +19,8 @@ export default Factory.extend({
 
   withRounds: trait({
     afterCreate(course, server) {
-
       server.createList('round', 3, { course });
-    }
+    },
   }),
 
   afterCreate(course, server) {
@@ -31,5 +32,5 @@ export default Factory.extend({
       return a + b.attrs.par;
     });
     server.schema.courses.find(course.id).update({ par: par });
-  }
+  },
 });

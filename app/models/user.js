@@ -1,7 +1,5 @@
-import DS from 'ember-data';
-const { Model } = DS;
-import { attr } from '@ember-decorators/data';
-import { computed } from '@ember-decorators/object';
+import Model, { attr } from '@ember-data/model';
+import { computed } from '@ember/object';
 
 export default class UserModel extends Model {
   @attr('string') avatarUrl;
@@ -21,7 +19,11 @@ export default class UserModel extends Model {
 
   @computed('_fullNames')
   get initials() {
-    return this._fullNames.map(function(name) { return name[0]; }).join('');
+    return this._fullNames
+      .map(function (name) {
+        return name[0];
+      })
+      .join('');
   }
 
   @computed('_fullLocation')
@@ -31,19 +33,11 @@ export default class UserModel extends Model {
 
   @computed('city', 'province', 'countryCode')
   get _fullLocation() {
-    return [
-      this.city,
-      this.province,
-      this.countryCode
-    ].filter(Boolean);
+    return [this.city, this.province, this.countryCode].filter(Boolean);
   }
 
   @computed('firstName', 'middleName', 'lastName')
   get _fullNames() {
-    return [
-      this.firstName,
-      this.middleName,
-      this.lastName
-    ].filter(Boolean);
+    return [this.firstName, this.middleName, this.lastName].filter(Boolean);
   }
 }

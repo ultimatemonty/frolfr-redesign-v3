@@ -1,6 +1,4 @@
-import DS from 'ember-data';
-const { Model } = DS;
-import { attr, belongsTo } from '@ember-decorators/data';
+import Model, { attr, belongsTo } from '@ember-data/model';
 
 export default class HoleModel extends Model {
   @attr('string') holeNumber;

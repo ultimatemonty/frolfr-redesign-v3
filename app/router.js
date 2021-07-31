@@ -15,5 +15,3 @@ Router.map(function() {
   this.route('rounds.new', { path: '/rounds/new' });
   this.route('round', { path: '/rounds/:round_id' });
 });
-
-export default Router;

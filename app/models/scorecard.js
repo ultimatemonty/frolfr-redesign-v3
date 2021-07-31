@@ -1,6 +1,4 @@
-import DS from 'ember-data';
-const { Model } = DS;
-import { belongsTo, hasMany } from '@ember-decorators/data';
+import Model, { belongsTo, hasMany } from '@ember-data/model';
 
 export default class ScorecardModel extends Model {
   @belongsTo('user') player;

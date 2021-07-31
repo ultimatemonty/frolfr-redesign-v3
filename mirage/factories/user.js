@@ -1,4 +1,6 @@
-import { Factory, faker, trait } from 'ember-cli-mirage';
+import { Factory, trait } from 'ember-cli-mirage';
+
+import faker from 'faker';
 
 export default Factory.extend({
   avatarUrl: faker.image.avatar,
@@ -13,6 +15,6 @@ export default Factory.extend({
   withRounds: trait({
     afterCreate(user, server) {
       server.createList('round', 3, { user });
-    }
-  })
+    },
+  }),
 });

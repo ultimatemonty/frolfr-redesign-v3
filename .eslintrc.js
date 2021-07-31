@@ -36,6 +36,7 @@ module.exports = {
         'config/**/*.js',
         'lib/*/index.js',
         'server/**/*.js',
+        'app/styles/tailwind.js',
       ],
       parserOptions: {
         sourceType: 'script',

@@ -5,19 +5,19 @@ import { inject as service } from '@ember/service';
 export default Component.extend({
   router: service(),
 
-  href: computed('args.[]', function() {
-    return this.get('router').urlFor(...this.get('args'));
+  href: computed('args.[]', function () {
+    return this.router.urlFor(...this.args);
   }),
 
-  isActive: computed('args.[]', 'router.currentURL', function() {
-    return this.get('router').isActive(...this.get('args'));
+  isActive: computed('args.[]', 'router.currentURL', function () {
+    return this.router.isActive(...this.args);
   }),
 
   actions: {
     transitionTo() {
-      this.get('router').transitionTo(...this.get('args'));
-    }
-  }
+      this.router.transitionTo(...this.args);
+    },
+  },
 }).reopenClass({
-  positionalParams: 'args'
+  positionalParams: 'args',
 });

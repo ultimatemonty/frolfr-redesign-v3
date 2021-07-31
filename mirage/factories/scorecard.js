@@ -1,5 +1,5 @@
-import { Factory, faker, association } from 'ember-cli-mirage';
+import { Factory, association } from 'ember-cli-mirage';
 
-export default Factory.extend({
+import faker from 'faker';
 
-})
+export default Factory.extend({});

@@ -1,6 +1,4 @@
-import DS from 'ember-data';
-const { Model } = DS;
-import { attr, belongsTo, hasMany } from '@ember-decorators/data';
+import Model, { attr, belongsTo, hasMany } from '@ember-data/model';
 
 export default class RoundModel extends Model {
   @attr('string') createdAt;

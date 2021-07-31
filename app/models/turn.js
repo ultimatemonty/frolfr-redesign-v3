@@ -1,6 +1,4 @@
-import DS from 'ember-data';
-import { attr, belongsTo } from '@ember-decorators/data';
-const { Model } = DS;
+import Model, { attr, belongsTo } from '@ember-data/model';
 
 export default class TurnModel extends Model {
   @attr('number') strokes;

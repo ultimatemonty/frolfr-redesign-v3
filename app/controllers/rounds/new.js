@@ -1,9 +1,8 @@
 // modals are not togglable with this version
 import Controller from '@ember/controller';
-import { service } from '@ember-decorators/service';
-import { action } from '@ember-decorators/object';
+import { inject as service } from '@ember/service';
+import { action } from '@ember/object';
 import { isEmpty } from '@ember/utils';
-import moment from 'moment';
 
 export default class NewRoundController extends Controller {
   @service store;
@@ -51,14 +50,16 @@ export default class NewRoundController extends Controller {
   @action
   addPlayer(player) {
     this.selectedPlayers.pushObject(player);
-
   }
 
   @action
   removePlayer(player) {
-    this.set('selectedPlayers', this.selectedPlayers.filter(p => {
-      return player.id !== p.id;
-    }));
+    this.set(
+      'selectedPlayers',
+      this.selectedPlayers.filter((p) => {
+        return player.id !== p.id;
+      })
+    );
   }
 
   @action
@@ -72,9 +73,12 @@ export default class NewRoundController extends Controller {
     if (isEmpty(searchTerm)) {
       this.set('filteredCourses', this.courses);
     } else {
-      this.set('filteredCourses', this.courses.filter(course => {
-        return course.name.toLowerCase().includes(searchTerm.toLowerCase());
-      }));
+      this.set(
+        'filteredCourses',
+        this.courses.filter((course) => {
+          return course.name.toLowerCase().includes(searchTerm.toLowerCase());
+        })
+      );
     }
   }
 
@@ -83,19 +87,23 @@ export default class NewRoundController extends Controller {
     if (isEmpty(searchTerm)) {
       this.set('filteredPlayers', this.players);
     } else {
-      this.set('filteredPlayers', this.players.filter(player => {
-        return player.name.toLowerCase().includes(searchTerm.toLowerCase());
-      }));
+      this.set(
+        'filteredPlayers',
+        this.players.filter((player) => {
+          return player.name.toLowerCase().includes(searchTerm.toLowerCase());
+        })
+      );
     }
   }
 
   @action
   async startRound() {
     // create the round first
+    const now = new Date()
     let round = this.store.createRecord('round', {
-      createdAt: moment.utc().format(),
+      createdAt: now.toISOString(),
       players: this.selectedPlayers,
-      course: this.selectedCourse
+      course: this.selectedCourse,
     });
     await round.save();
 
@@ -103,7 +111,7 @@ export default class NewRoundController extends Controller {
     for (const player of this.selectedPlayers) {
       await this.store.createRecord('scorecard', {
         player: player,
-        round: round
+        round: round,
       });
     }
 

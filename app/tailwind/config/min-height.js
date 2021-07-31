@@ -13,7 +13,7 @@
 */
 
 export default {
-  '0': '0',
+  0: '0',
   full: '100%',
-  screen: '100vh'
+  screen: '100vh',
 };

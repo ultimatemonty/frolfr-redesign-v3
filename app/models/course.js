@@ -1,7 +1,5 @@
-import DS from 'ember-data';
-const { Model } = DS;
-import { attr, hasMany } from '@ember-decorators/data';
-import { computed } from '@ember-decorators/object';
+import Model, { attr, hasMany } from '@ember-data/model';
+import { computed } from '@ember/object';
 
 export default class CourseModel extends Model {
   @attr('string') name;
@@ -24,10 +22,6 @@ export default class CourseModel extends Model {
 
   @computed('city', 'province', 'countryCode')
   get _fullLocation() {
-    return [
-      this.city,
-      this.province,
-      this.countryCode
-    ].filter(Boolean);
+    return [this.city, this.province, this.countryCode].filter(Boolean);
   }
 }
