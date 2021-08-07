@@ -25,7 +25,7 @@
         Who are you playing with?
       </div>
       <div>
-        <ul class="list-reset flex flex-col h-64 overflow-y-auto">
+        <ul class=" flex flex-col h-64 overflow-y-auto">
           {{#each selectedPlayers as |player|}}
             <li class="mt-4">
               <div class="flex flex-row">
@@ -43,7 +43,7 @@
           {{/each}}
         </ul>
       </div>
-      <div class="pin-y pin-b mt-8">
+      <div class="inset-y-0 bottom-0 mt-8">
         <button class="bg-green text-2xl w-full text-white font-bold py-4 px-4 rounded" type="button" {{action "startRound"}}>
           Start Round
         </button>
@@ -68,7 +68,7 @@
                   </div>
                 </div>
                 <div>
-                  <ul class="list-reset flex flex-col h-96 overflow-y-scroll">
+                  <ul class=" flex flex-col h-96 overflow-y-scroll">
                     {{#each filteredCourses as |course|}}
                       <li class="mt-4 pointer-events-auto" onclick={{action "selectCourse" course}}>
                         <div class="flex flex-row">
@@ -108,7 +108,7 @@
                 </div>
               </div>
               <div>
-                <ul class="list-reset flex flex-col h-96 overflow-y-scroll">
+                <ul class=" flex flex-col h-96 overflow-y-scroll">
                   {{#each filteredPlayers as |player|}}
                     <li class="mt-4 pointer-events-auto" onclick={{action "addPlayer" player}}>
                       <div class="flex flex-row">
