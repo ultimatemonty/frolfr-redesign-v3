@@ -67,7 +67,7 @@ module.exports = {
       files: ['mirage/**/*.js'],
       rules: {
         'no-unused-vars': 'off',
-      }
-    }
+      },
+    },
   ],
 };
