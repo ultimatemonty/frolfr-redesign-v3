@@ -5,3 +5,6 @@
 
 @import "tailwindcss/utilities";
 @import "utilities.css";
+
+@import "ember-modal-dialog/ember-modal-structure.css";
+@import "ember-modal-dialog/ember-modal-appearance.css";

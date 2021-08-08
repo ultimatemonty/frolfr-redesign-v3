@@ -44,7 +44,7 @@
         </ul>
       </div>
       <div class="inset-y-0 bottom-0 mt-8">
-        <button class="bg-green text-2xl w-full text-white font-bold py-4 px-4 rounded" type="button" {{action "startRound"}}>
+        <button class="bg-green-500 text-2xl w-full text-white font-bold py-4 px-4 rounded" type="button" {{action "startRound"}}>
           Start Round
         </button>
       </div>
@@ -53,7 +53,7 @@
 
   {{#if showCourseSelect}}
     <div>
-      {{!-- <ModalDialog @animatable={{false}} @onClose={{action "toggleCourseSelect"}} @clickOutsideToClose={{true}} @tetherTarget="#footer" @targetAttachment="bottom middle" @attachment="bottom middle" @overlayClass="bg-black opacity-75">
+      <ModalDialog @animatable={{false}} @onClose={{action "toggleCourseSelect"}} @clickOutsideToClose={{true}} @tetherTarget="#footer" @targetAttachment="bottom middle" @attachment="bottom middle" @overlayClass="bg-black opacity-75">
           <div class="flex">
             <div class="w-screen bg-white h-96">
               <div class="px-4 py-2">
@@ -87,13 +87,13 @@
               </div>
             </div>
           </div>
-      </ModalDialog> --}}
+      </ModalDialog>
     </div>
   {{/if}}
 
   {{#if showPlayerSelect}}
     <div>
-      {{!-- <ModalDialog @animatable={{false}} @onClose={{action "togglePlayerSelect"}} @clickOutsideToClose={{true}} @tetherTarget="#footer" @targetAttachment="bottom middle" @attachment="bottom middle" @overlayClass="bg-black opacity-75">
+      <ModalDialog @animatable={{false}} @onClose={{action "togglePlayerSelect"}} @clickOutsideToClose={{true}} @tetherTarget="#footer" @targetAttachment="bottom middle" @attachment="bottom middle" @overlayClass="bg-black opacity-75">
         <div class="flex">
           <div class="w-screen bg-white h-96">
             <div class="px-4 py-2">
@@ -126,7 +126,7 @@
             </div>
           </div>
         </div>
-      </ModalDialog> --}}
+      </ModalDialog>
     </div>
   {{/if}}
 </div>
