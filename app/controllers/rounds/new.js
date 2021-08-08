@@ -99,7 +99,7 @@ export default class NewRoundController extends Controller {
   @action
   async startRound() {
     // create the round first
-    const now = new Date()
+    const now = new Date();
     let round = this.store.createRecord('round', {
       createdAt: now.toISOString(),
       players: this.selectedPlayers,

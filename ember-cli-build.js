@@ -6,7 +6,7 @@ const autoprefixer = require('autoprefixer');
 const postcssimport = require('postcss-import');
 const tailwind = require('tailwindcss');
 
-module.exports = function(defaults) {
+module.exports = function (defaults) {
   let app = new EmberApp(defaults, {
     postcssOptions: {
       compile: {
@@ -14,16 +14,16 @@ module.exports = function(defaults) {
           {
             module: postcssimport,
             options: {
-              path: ['node_modules']
-            }
+              path: ['node_modules'],
+            },
           },
           {
             module: tailwind,
             options: {
-              config: './app/tailwind.config.js'
-            }
-          }
-        ]
+              config: './app/tailwind.config.js',
+            },
+          },
+        ],
       },
       filter: {
         enabled: true,
@@ -31,12 +31,12 @@ module.exports = function(defaults) {
           {
             module: autoprefixer,
             options: {
-              browsers: ['last 2 versions']
-            }
-          }
-        ]
-      }
-    }
+              browsers: ['last 2 versions'],
+            },
+          },
+        ],
+      },
+    },
   });
   return app.toTree();
 };
