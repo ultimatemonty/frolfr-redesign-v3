@@ -27,24 +27,24 @@ export default class NewRoundController extends Controller {
   async _fetchInitialData() {
     this.players = await this.store.findAll('user');
     this.courses = await this.store.findAll('course', { include: 'holes' });
-    this.set('filteredCourses', this.courses);
-    this.set('filteredPlayers', this.players);
+    this.filteredCourses = this.courses;
+    this.filteredPlayers = this.players;
   }
 
   @action
   toggleCourseSelect() {
-    this.toggleProperty('showCourseSelect');
+    this.showCourseSelect = !this.showCourseSelect;
   }
 
   @action
   togglePlayerSelect() {
-    this.toggleProperty('showPlayerSelect');
+    this.showPlayerSelect = !this.showPlayerSelect;
   }
 
   @action
   selectCourse(course) {
-    this.set('selectedCourse', course);
-    this.toggleProperty('showCourseSelect');
+    this.selectedCourse = course;
+    this.showCourseSelect = !this.showCourseSelect;
   }
 
   @action
@@ -54,45 +54,36 @@ export default class NewRoundController extends Controller {
 
   @action
   removePlayer(player) {
-    this.set(
-      'selectedPlayers',
-      this.selectedPlayers.filter((p) => {
-        return player.id !== p.id;
-      })
-    );
+    this.selectedPlayers = this.selectedPlayers.filter((p) => {
+      return player.id !== p.id;
+    });
   }
 
   @action
   clearSelectedCourse(event) {
     event.preventDefault();
-    this.set('selectedCourse', null);
+    this.selectedCourse = null;
   }
 
   @action
   searchCourses(searchTerm) {
     if (isEmpty(searchTerm)) {
-      this.set('filteredCourses', this.courses);
+      this.filteredCourses = this.courses;
     } else {
-      this.set(
-        'filteredCourses',
-        this.courses.filter((course) => {
-          return course.name.toLowerCase().includes(searchTerm.toLowerCase());
-        })
-      );
+      this.filteredCourses = this.courses.filter((course) => {
+        return course.name.toLowerCase().includes(searchTerm.toLowerCase());
+      });
     }
   }
 
   @action
   searchPlayers(searchTerm) {
     if (isEmpty(searchTerm)) {
-      this.set('filteredPlayers', this.players);
+      this.filteredPlayers = this.players;
     } else {
-      this.set(
-        'filteredPlayers',
-        this.players.filter((player) => {
-          return player.name.toLowerCase().includes(searchTerm.toLowerCase());
-        })
-      );
+      this.filteredPlayers = this.players.filter((player) => {
+        return player.name.toLowerCase().includes(searchTerm.toLowerCase());
+      });
     }
   }
 
