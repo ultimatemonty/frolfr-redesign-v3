@@ -15,30 +15,30 @@
       {{outlet}}
     </div>
     <div id="footer" class="flex justify-around text-center items-center border h-16 inset-x-0 bottom-0 bg-grey-light">
-      {{#ui-link 'round' '1' as |link|}}
-        <div class="self-stretch pointer-events-auto" onclick={{action link.transitionTo}}>
+      <UiLink @args={{array "round" "1"}} as |link|>
+        <div class="self-stretch pointer-events-auto" {{on "click" link.transitionTo}}>
           Rounds
         </div>
-      {{/ui-link}}
+      </UiLink>
 
-      {{#ui-link 'users' as |link|}}
-        <div class="self-stretch pointer-events-auto" onclick={{action link.transitionTo}}>
+      <UiLink @args={{array "users"}} as |link|>
+        <div class="self-stretch pointer-events-auto" {{on "click" link.transitionTo}}>
           Users
         </div>
-      {{/ui-link}}
+      </UiLink>
 
-      {{#ui-link 'user' '1' as |link|}}
-        <div class="self-stretch pointer-events-auto" onclick={{action link.transitionTo}}>
+      <UiLink @args={{array "user" "1"}} as |link|>
+        <div class="self-stretch pointer-events-auto" {{on "click" link.transitionTo}}>
           Profile
         </div>
-      {{/ui-link}}
+      </UiLink>
 
-      {{#ui-link 'rounds.new' as |link|}}
-        <div class="self-stretch pointer-events-auto" onclick={{action link.transitionTo}}>
+      <UiLink @args={{array "rounds.new"}} as |link|>
+        <div class="self-stretch pointer-events-auto" {{on "click" link.transitionTo}}>
           {{!-- {{svg-jar "plus" class="stroke-current w-4 h-4 mr-1"}} --}}
           New
         </div>
-      {{/ui-link}}
+      </UiLink>
     </div>
   </div>
 </div>
