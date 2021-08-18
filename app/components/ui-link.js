@@ -1,6 +1,7 @@
 /* eslint-disable ember/no-classic-components */
-import Component, { action } from '@ember/component';
+import Component from '@ember/component';
 import { inject as service } from '@ember/service';
+import { action } from '@ember/object';
 
 export default class UiLink extends Component {
   tagName = '';
