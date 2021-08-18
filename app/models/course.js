@@ -1,5 +1,4 @@
 import Model, { attr, hasMany } from '@ember-data/model';
-import { computed } from '@ember/object';
 
 export default class CourseModel extends Model {
   @attr('string') name;
@@ -15,12 +14,10 @@ export default class CourseModel extends Model {
 
   @hasMany('hole') holes;
 
-  @computed('_fullLocation')
   get location() {
     return this._fullLocation.join(', ');
   }
 
-  @computed('city', 'province', 'countryCode')
   get _fullLocation() {
     return [this.city, this.province, this.countryCode].filter(Boolean);
   }
