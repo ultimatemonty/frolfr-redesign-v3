@@ -1,23 +1,22 @@
+/* eslint-disable ember/no-classic-components */
 import Component from '@ember/component';
-import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
+import { action } from '@ember/object';
 
-export default Component.extend({
-  router: service(),
+export default class UiLink extends Component {
+  tagName = '';
+  @service router;
 
-  href: computed('args.[]', function () {
+  get href() {
     return this.router.urlFor(...this.args);
-  }),
+  }
 
-  isActive: computed('args.[]', 'router.currentURL', function () {
+  get isActive() {
     return this.router.isActive(...this.args);
-  }),
+  }
 
-  actions: {
-    transitionTo() {
-      this.router.transitionTo(...this.args);
-    },
-  },
-}).reopenClass({
-  positionalParams: 'args',
-});
+  @action
+  transitionTo() {
+    this.router.transitionTo(...this.args);
+  }
+}

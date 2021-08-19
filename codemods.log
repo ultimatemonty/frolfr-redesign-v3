@@ -1,6 +1,0 @@
-2021-07-31T15:57:34.582Z [warn] WARNING: {{ui-link}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/application.hbs
-2021-07-31T15:57:34.584Z [warn] WARNING: {{ui-link}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/application.hbs
-2021-07-31T15:57:34.585Z [warn] WARNING: {{ui-link}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/application.hbs
-2021-07-31T15:57:34.585Z [warn] WARNING: {{ui-link}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/application.hbs
-2021-07-31T15:57:35.631Z [warn] WARNING: {{ui-link}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/users.hbs
-2021-07-31T15:57:35.729Z [warn] WARNING: {{ui-link}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/courses.hbs

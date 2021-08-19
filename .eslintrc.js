@@ -37,6 +37,7 @@ module.exports = {
         'lib/*/index.js',
         'server/**/*.js',
         'app/styles/tailwind.js',
+        'app/tailwind.config.js',
       ],
       parserOptions: {
         sourceType: 'script',
@@ -51,12 +52,22 @@ module.exports = {
         // this can be removed once the following is fixed
         // https://github.com/mysticatea/eslint-plugin-node/issues/77
         'node/no-unpublished-require': 'off',
+        'no-unused-vars': 'off',
+        'no-undef': 'off',
+        'no-redeclare': 'off',
       },
     },
     {
       // Test files:
       files: ['tests/**/*-test.{js,ts}'],
       extends: ['plugin:qunit/recommended'],
+    },
+    {
+      // mirage
+      files: ['mirage/**/*.js'],
+      rules: {
+        'no-unused-vars': 'off',
+      },
     },
   ],
 };

@@ -4,11 +4,11 @@
   </div>
 
   <div class="overflow-y-scroll">
-    {{#each model as |user|}}
-      {{#ui-link "user" user.id as |link|}}
-        <div class="bg-white mt-4 pointer-events-auto mx-auto max-w-sm shadow-lg rounded-lg overflow-hidden mb-" onclick={{action link.transitionTo}}>
+    {{#each this.model as |user|}}
+      <UiLink @args={{array "user" user.id}} as |link|>
+        <div class="bg-white mt-4 pointer-events-auto mx-auto max-w-sm shadow-lg rounded-lg overflow-hidden mb-" role="button" {{on "click" link.transitionTo}}>
           <div class="flex px-6 py-4">
-            <img class="block h-16 rounded-full mx-auto mb-0 mr-4 ml-0" src="{{user.avatarUrl}}" alt="">
+            <img class="block h-16 rounded-full mx-auto mb-0 mr-4 ml-0" src="{{user.avatarUrl}}" alt="{{user.userName}}">
             <div class="text-left flex-grow">
               <div class="mb-4">
                 <p class="text-xl leading-tight">{{user.name}}</p>
@@ -18,7 +18,7 @@
             </div>
           </div>
         </div>
-      {{/ui-link}}
+      </UiLink>
     {{/each}}
   </div>
 </div>
