@@ -16,25 +16,25 @@
     </div>
     <div id="footer" class="flex justify-around text-center items-center border h-16 inset-x-0 bottom-0 bg-grey-light">
       <UiLink @args={{array "round" "1"}} as |link|>
-        <div class="self-stretch pointer-events-auto" {{on "click" link.transitionTo}}>
+        <div class="self-stretch pointer-events-auto" role="button" {{on "click" link.transitionTo}}>
           Rounds
         </div>
       </UiLink>
 
       <UiLink @args={{array "users"}} as |link|>
-        <div class="self-stretch pointer-events-auto" {{on "click" link.transitionTo}}>
+        <div class="self-stretch pointer-events-auto" role="button" {{on "click" link.transitionTo}}>
           Users
         </div>
       </UiLink>
 
       <UiLink @args={{array "user" "1"}} as |link|>
-        <div class="self-stretch pointer-events-auto" {{on "click" link.transitionTo}}>
+        <div class="self-stretch pointer-events-auto" role="button" {{on "click" link.transitionTo}}>
           Profile
         </div>
       </UiLink>
 
       <UiLink @args={{array "rounds.new"}} as |link|>
-        <div class="self-stretch pointer-events-auto" {{on "click" link.transitionTo}}>
+        <div class="self-stretch pointer-events-auto" role="button" {{on "click" link.transitionTo}}>
           {{!-- {{svg-jar "plus" class="stroke-current w-4 h-4 mr-1"}} --}}
           New
         </div>

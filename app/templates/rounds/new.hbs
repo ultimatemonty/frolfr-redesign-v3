@@ -9,18 +9,19 @@
             <div>
               {{this.selectedCourse.name}}
             </div>
-            <div class="pointer-events-auto" {{on "click" this.clearSelectedCourse}}>
+            <div class="pointer-events-auto" role="button" {{on "click" this.clearSelectedCourse}}>
               X
             </div>
           </div>
         {{else}}
-          <div class="w-full" {{on "click" this.toggleCourseSelect}}>
+          <div class="w-full" role="button" {{on "click" this.toggleCourseSelect}}>
             Where are you playing?
           </div>
         {{/if}}
       </div>
       <div
         class="flex w-full items-center border-b border-b-2 border-grey py-2 text-grey-darker text-2xl mt-12 pointer-events-auto"
+         role="button"
         {{on "click" this.togglePlayerSelect}}>
         Who are you playing with?
       </div>
@@ -35,7 +36,7 @@
                 <div class="text-xl text-grey-darker px-4 items-center mt-1">
                   {{player.name}}
                 </div>
-                <div class="pointer-events-auto text-xl mt-1 mr-0 -ml-1" {{on "click" this.removePlayer player}}>
+                <div class="pointer-events-auto text-xl mt-1 mr-0 -ml-1" role="button" {{on "click" this.removePlayer player}}>
                   X
                 </div>
               </div>
