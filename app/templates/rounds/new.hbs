@@ -4,29 +4,29 @@
     <form class="w-full h-full max-w-sm">
       <div
         class="flex flex-row border-b border-b-2 border-grey py-2 text-grey-darker text-2xl mt-12">
-        {{#if selectedCourse}}
+        {{#if this.selectedCourse}}
           <div class="flex justify-between w-full text-blue border border-1-grey-light rounded px-4 py-2">
             <div>
-              {{selectedCourse.name}}
+              {{this.selectedCourse.name}}
             </div>
-            <div class="pointer-events-auto" onclick={{action "clearSelectedCourse"}}>
+            <div class="pointer-events-auto" {{on "click" this.clearSelectedCourse}}>
               X
             </div>
           </div>
         {{else}}
-          <div class="w-full" onclick={{action "toggleCourseSelect"}}>
+          <div class="w-full" {{on "click" this.toggleCourseSelect}}>
             Where are you playing?
           </div>
         {{/if}}
       </div>
       <div
         class="flex w-full items-center border-b border-b-2 border-grey py-2 text-grey-darker text-2xl mt-12 pointer-events-auto"
-        onclick={{action "togglePlayerSelect"}}>
+        {{on "click" this.togglePlayerSelect}}>
         Who are you playing with?
       </div>
       <div>
         <ul class=" flex flex-col h-64 overflow-y-auto">
-          {{#each selectedPlayers as |player|}}
+          {{#each this.selectedPlayers as |player|}}
             <li class="mt-4">
               <div class="flex flex-row">
                 <div class="items-center">
@@ -35,7 +35,7 @@
                 <div class="text-xl text-grey-darker px-4 items-center mt-1">
                   {{player.name}}
                 </div>
-                <div class="pointer-events-auto text-xl mt-1 mr-0 -ml-1" onclick={{action "removePlayer" player}}>
+                <div class="pointer-events-auto text-xl mt-1 mr-0 -ml-1" {{on "click" this.removePlayer player}}>
                   X
                 </div>
               </div>
@@ -44,14 +44,14 @@
         </ul>
       </div>
       <div class="inset-y-0 bottom-0 mt-8">
-        <button class="bg-green text-2xl w-full text-white font-bold py-4 px-4 rounded" type="button" {{action "startRound"}}>
+        <button class="bg-green text-2xl w-full text-white font-bold py-4 px-4 rounded" type="button" {{on "click" this.startRound}}>
           Start Round
         </button>
       </div>
     </form>
   </div>
 
-  {{#if showCourseSelect}}
+  {{#if this.showCourseSelect}}
     <div>
       {{!-- <ModalDialog @animatable={{false}} @onClose={{action "toggleCourseSelect"}} @clickOutsideToClose={{true}} @tetherTarget="#footer" @targetAttachment="bottom middle" @attachment="bottom middle" @overlayClass="bg-black opacity-75">
           <div class="flex">
@@ -91,7 +91,7 @@
     </div>
   {{/if}}
 
-  {{#if showPlayerSelect}}
+  {{#if this.showPlayerSelect}}
     <div>
       {{!-- <ModalDialog @animatable={{false}} @onClose={{action "togglePlayerSelect"}} @clickOutsideToClose={{true}} @tetherTarget="#footer" @targetAttachment="bottom middle" @attachment="bottom middle" @overlayClass="bg-black opacity-75">
         <div class="flex">
