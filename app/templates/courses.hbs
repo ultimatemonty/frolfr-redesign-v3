@@ -4,9 +4,9 @@
   </div>
 
   <div class="overflow-y-scroll">
-    {{#each model as |course|}}
-      {{#ui-link "course" course.id as |link|}}
-        <div class="rounded shadow border mt-4 pointer-events-auto" onclick={{action link.transitionTo}}>
+    {{#each this.model as |course|}}
+      <UiLink @args={{array "course" course.id}} as |link|>
+        <div class="rounded shadow border mt-4 pointer-events-auto" {{on "click" link.transitionTo}}>
           <div class="flex flex-col px-6 py-4">
             <div class="flex flex-row">
               <div class="w-2/3 font-bold text-xl mb-2">{{course.name}}</div>
@@ -22,7 +22,7 @@
             </div>
           </div>
         </div>
-      {{/ui-link}}
+      </UiLink>
     {{/each}}
   </div>
 </div>
