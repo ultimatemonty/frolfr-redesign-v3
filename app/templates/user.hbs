@@ -1,8 +1,8 @@
-<div id="user-profile-header" class="relative h-2/5 bg-gradient-to-br from-blue-400 via-indigo-500 to-green-500 shadow">
-  <div class="bg-gray-400 h-full pt-6 relative bg-opacity-50 flex flex-col flex-wrap items-center content-around">
-    <img class="block rounded-full h-36 w-36 shadow-xl" src={{this.model.avatarUrl}} alt={{this.model.name}}>
-    <div class="text-gray-100 pt-4">
-      <span class="text-xl tracking-wide font-semibold uppercase">{{this.model.name}}</span>
+<div id="user-profile-header" class="relative h-2/5 bg-no-repeat bg-cover bg-center shadow-lg" style="background-image: url('/images/splash-default.jpg');">
+  <div class="bg-gray-900 bg-opacity-60 h-full pt-6 relative flex flex-col flex-wrap items-center content-around">
+    <img class="block rounded-full h-36 w-36 shadow-xl border-2 border-gray-600 p-1" src={{this.model.avatarUrl}} alt={{this.model.name}}>
+    <div class="text-gray-200 pt-4">
+      <span class="text-2xl tracking-wide font-semibold uppercase">{{this.model.name}}</span>
     </div>
   </div>
   <div class="bg-gray-900 bg-opacity-50 text-gray-300 absolute inset-x-0 bottom-0 flex justify-around">
@@ -20,14 +20,44 @@
     </div>
   </div>
 </div>
-<div id="user-profile-detail">
-
-</div>
-{{!-- <img class="w-full" src={{this.model.avatarUrl}} alt={{this.model.name}}>
-<div class="flex justify-center">
-  <h2 class="px-4 py-2 -mt-6 lock rounded max-w-lg min-w-lg text-center bg-white border">{{this.model.name}}</h2>
-
-  <div id="user-details" oclass="px-4 py-2">
+<div id="user-content-menu">
+  <div class="flex justify-around items-stretch bg-gray-100 text-gray-900 border-b-2 border-gray-400 border-opacity-70">
+    <div class=" py-4 w-1/2 text-center uppercase text-sm font-semibold border-r-2 border-gray-400 border-opacity-70">
+      Recent Rounds
+    </div>
+    <div class="bg-gray-300 text-gray-400 py-4 w-1/2 text-center uppercase text-sm font-semibold">
+      Favorite Courses
+    </div>
   </div>
-</div> --}}
+</div>
+<div id="user-content" class="flex flex-col">
+  <div class="flex flex-row items-stretch p-2 border-b-2 border-gray-300">
+    <div class="w-1/5 text-center text-4xl py-2 text-green-400">
+      -4
+    </div>
+    <div class="w-3/5">
+      <span class="block text-2xl tracking-wide">August 23, 2011</span>
+      <span class="block">
+        <span class="inline-block text-sm font-bold tracking-wide">Oregon Park</span><span class="inline-block text-sm text-gray-500 font-semibold tracking-wide pl-2">&bull; 2nd</span>
+      </span>
+    </div>
+    <div class="w-1/5">
+      Players
+    </div>
+  </div>
+  <div class="flex flex-row items-stretch p-2 border-b-2 text-gray-900 border-gray-300">
+    <div class="w-1/5 text-center text-4xl py-2 text-red-400">
+      +4
+    </div>
+    <div class="w-3/5">
+      <span class="block text-2xl tracking-wide">August 23, 2011</span>
+      <span class="block">
+        <span class="inline-block text-sm font-bold tracking-wide">Oregon Park</span><span class="inline-block text-sm text-gray-500 font-semibold tracking-wide pl-2">&bull; 2nd</span>
+      </span>
+    </div>
+    <div class="w-1/5">
+      Players
+    </div>
+  </div>
+</div>
 
