@@ -1,0 +1,25 @@
+@layer utilities {
+  @variants responsive {
+      .text-outline-dark {
+        text-shadow: 2px 2px 4px black;
+      }
+      .text-outline-dark-md {
+        text-shadow: 4px 4px 8px black;
+      }
+      .text-outline-dark-lg {
+        text-shadow: 15px 15px 30px black;
+      }
+      .text-outline-light {
+        text-shadow: 2px 2px 4px white;
+      }
+      .text-outline-light-md {
+        text-shadow: 4px 4px 8px white;
+      }
+      .text-outline-light-lg {
+        text-shadow: 15px 15px 30px white;
+      }
+      .text-outline-none {
+        text-shadow: none;
+      }
+  } 
+}
