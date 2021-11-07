@@ -5,3 +5,15 @@
 
 @import "tailwindcss/utilities";
 @import "utilities.css";
+
+#user-profile-header::before {
+  content: "";
+  background-image: url('/images/splash-default.jpg');
+  background-size: cover;
+  opacity: 0.5;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}
