@@ -23,11 +23,11 @@
   </div>
 </header>
 <div id="user-content-menu">
-  <div class="flex justify-around items-stretch border-b-2 border-gray-400 border-opacity-70 {{if showRounds "bg-gray-100 text-gray-900" "bg-gray-300 text-gray-400"}}">
-    <button class=" py-4 w-1/2 text-center border-r-2 border-gray-400 border-opacity-70" role="button" {{on "click" this.toggleRounds}}>
+  <div class="flex justify-around items-stretch border-b-2 border-gray-400 border-opacity-70 {{if this.showRounds "bg-gray-100 text-gray-900" "bg-gray-300 text-gray-400"}}">
+    <button class=" py-4 w-1/2 text-center border-r-2 border-gray-400 border-opacity-70" role="button" type="button" {{on "click" this.toggleRounds}}>
       <span class="uppercase text-sm font-semibold">Recent Rounds</span>
     </button>
-    <button class="py-4 w-1/2 text-center {{if showFavorites "bg-gray-100 text-gray-900" "bg-gray-300 text-gray-400 "}}" role="button" {{on "click" this.toggleFavorites}}>
+    <button class="py-4 w-1/2 text-center {{if this.showFavorites "bg-gray-100 text-gray-900" "bg-gray-300 text-gray-400 "}}" role="button" type="button" {{on "click" this.toggleFavorites}}>
       <span class="uppercase text-sm font-semibold">Favorite Courses</span>
     </button>
   </div>
