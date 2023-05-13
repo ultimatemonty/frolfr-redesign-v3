@@ -1,0 +1,39 @@
+<form {{on "submit" this.authenticate}}>
+  <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
+    {{#if this.errorMessage}}
+      <div class="flex bg-red-100 rounded-lg p-4 mb-4 text-sm text-red-700" role="alert">
+        <svg class="w-5 h-5 inline mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd"
+            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+            clip-rule="evenodd"></path>
+        </svg>
+        <div>
+          {{this.errorMessage}}
+        </div>
+      </div>
+    {{/if}}
+    <div class="mb-4">
+      <label class="block text-grey-darker text-sm font-bold mb-2" for="email">
+        Username
+      </label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" id="email" type="text"
+        placeholder="Username" value={{this.username}} {{on "change" this.updateUsername}}>
+    </div>
+    <div class="mb-6">
+      <label class="block text-grey-darker text-sm font-bold mb-2" for="password">
+        Password
+      </label>
+      <input class="shadow appearance-none border border-red rounded w-full py-2 px-3 text-grey-darker mb-3" id="password"
+        type="password" placeholder="******************" value={{this.password}} {{on "change" this.updatePassword}}>
+      <p class="text-red text-xs italic">Please choose a password.</p>
+    </div>
+    <div class="flex items-center justify-between">
+      <button class="bg-blue-500 hover:bg-blue-dark text-white font-bold py-2 px-4 rounded" type="submit">
+        Sign In
+      </button>
+      <a class="inline-block align-baseline font-bold text-sm text-blue hover:text-blue-darker" href="#">
+        Forgot Password?
+      </a>
+    </div>
+  </div>
+</form>

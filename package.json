@@ -1,8 +1,8 @@
 {
-  "name": "frolfr-redesign-v3",
+  "name": "frolfr",
   "version": "0.0.0",
   "private": true,
-  "description": "Small description for frolfr-redesign-v3 goes here",
+  "description": "The greatest disc golf scoring app in the history of the universe",
   "repository": "",
   "license": "MIT",
   "author": "",
@@ -19,6 +19,7 @@
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
     "start": "ember serve",
+    "start:proxy": "ember serve --proxy \"http://localhost:3000\"",
     "test": "ember test"
   },
   "devDependencies": {
@@ -37,7 +38,6 @@
     "ember-cli-dependency-checker": "^3.2.0",
     "ember-cli-htmlbars": "^5.7.1",
     "ember-cli-inject-live-reload": "^2.0.2",
-    "ember-cli-mirage": "^2.1.0",
     "ember-cli-postcss": "^7.0.2",
     "ember-cli-sri": "^2.1.1",
     "ember-data": "~3.27.1",
@@ -48,6 +48,7 @@
     "ember-power-select": "^4.1.6",
     "ember-qunit": "^5.1.4",
     "ember-resolver": "^8.0.2",
+    "ember-simple-auth": "^5.0.0",
     "ember-source": "~3.27.2",
     "ember-svg-jar": "^2.3.3",
     "ember-template-lint": "^3.4.2",
@@ -78,5 +79,6 @@
   "volta": {
     "node": "14.17.4",
     "yarn": "1.22.11"
-  }
+  },
+  "dependencies": {}
 }

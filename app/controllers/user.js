@@ -1,8 +1,8 @@
-import Controller from '@ember/controller';
+import ApplicationController from 'frolfr/controllers/application';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-export default class UserController extends Controller {
+export default class UserController extends ApplicationController {
   @tracked showRounds = true;
   @tracked showFavorites = false;
 

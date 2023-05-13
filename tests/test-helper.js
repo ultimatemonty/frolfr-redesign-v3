@@ -1,5 +1,5 @@
-import Application from 'frolfr-redesign-v3/app';
-import config from 'frolfr-redesign-v3/config/environment';
+import Application from 'frolfr/app';
+import config from 'frolfr/config/environment';
 import * as QUnit from 'qunit';
 import { setApplication } from '@ember/test-helpers';
 import { setup } from 'qunit-dom';

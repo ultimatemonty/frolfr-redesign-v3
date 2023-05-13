@@ -8,6 +8,9 @@ const tailwind = require('tailwindcss');
 
 module.exports = function (defaults) {
   let app = new EmberApp(defaults, {
+    'ember-simple-auth': {
+      useSessionSetupMethod: true,
+    },
     postcssOptions: {
       compile: {
         plugins: [

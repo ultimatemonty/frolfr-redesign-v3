@@ -1,6 +1,6 @@
-import Route from '@ember/routing/route';
+import AppRoute from './app';
 
-export default class UsersRoute extends Route {
+export default class UsersRoute extends AppRoute {
   model() {
     return this.store.findAll('user');
   }

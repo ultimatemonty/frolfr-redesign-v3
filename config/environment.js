@@ -2,7 +2,7 @@
 
 module.exports = function (environment) {
   let ENV = {
-    modulePrefix: 'frolfr-redesign-v3',
+    modulePrefix: 'frolfr',
     environment,
     rootURL: '/',
     locationType: 'auto',
@@ -21,6 +21,8 @@ module.exports = function (environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
+    apiHost: "http://localhost:4200",
+    apiNamespace: "jsonapi"
   };
 
   if (environment === 'development') {
@@ -41,12 +43,6 @@ module.exports = function (environment) {
 
     ENV.APP.rootElement = '#ember-testing';
     ENV.APP.autoboot = false;
-  }
-
-  if (environment === 'production') {
-    ENV['ember-cli-mirage'] = {
-      enabled: true,
-    };
   }
 
   return ENV;
