@@ -5,6 +5,7 @@ import { tracked } from '@glimmer/tracking';
 
 export default class LoginController extends ApplicationController {
   @service router;
+  @service currentUser;
 
   @tracked errorMessage;
   @tracked username;

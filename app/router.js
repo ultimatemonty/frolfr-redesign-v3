@@ -18,5 +18,4 @@ Router.map(function () {
     this.route('round', { path: '/rounds/:round_id' });
   });
   this.route('signin');
-  this.route('index', { path: '/' });
 });
