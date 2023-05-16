@@ -12,7 +12,7 @@ Router.map(function () {
     this.route('courses');
     this.route('course', { path: '/courses/:course_id' });
     this.route('users');
-    this.route('user', { path: '/profile/:user_id' });
+    this.route('user', { path: '/profile' });
     this.route('rounds');
     this.route('rounds.new', { path: '/rounds/new' });
     this.route('round', { path: '/rounds/:round_id' });

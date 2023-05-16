@@ -1,4 +1,5 @@
 import ApplicationController from 'frolfr/controllers/application';
+import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 

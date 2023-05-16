@@ -6,18 +6,18 @@ export default class ApplicationRoute extends Route {
   @service router;
   @service session;
 
-  async beforeModel() {
+  async beforeModel(transition) {
     await this.session.setup();
-    if (this.session.isAuthenticated) {
-      this.router.transitionTo('app.home');
-    } else {
+    if (!this.session.isAuthenticated) {
       this.router.transitionTo('signin');
+    } else if (!transition) {
+      this.router.transitionTo('app.home');
     }
   }
 
-  // @action
-  // activate() {
-  //   this._super(...arguments);
-  //   window.scrollTo(0,0);
-  // }
+  @action
+  activate() {
+    this._super(...arguments);
+    window.scrollTo(0,0);
+  }
 }
