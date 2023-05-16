@@ -80,5 +80,7 @@
     "node": "14.17.4",
     "yarn": "1.22.11"
   },
-  "dependencies": {}
+  "dependencies": {
+    "blueimp-md5": "^2.19.0"
+  }
 }
