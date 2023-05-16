@@ -11,9 +11,7 @@ export default class GravatarComponent extends Component {
 
   @action
   loadGravatar() {
-    // if (this.currentUser.user.gravatarUrl) {
-      let hash = md5("chris@themccullers.com").trim().toLowerCase();
-      this.gravatarUrl = `${this.gravatarHost}/${hash}?s=${this.size}`;
-    // }
+    let hash = md5(this.args.user.email).trim().toLowerCase();
+    this.gravatarUrl = `${this.gravatarHost}/${hash}?s=${this.size}&d=retro`;
   }
 }
