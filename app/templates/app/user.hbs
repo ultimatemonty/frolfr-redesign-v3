@@ -1,7 +1,9 @@
 <header id="user-profile-header" class="relative shadow-lg bg-gray-600">
   <div class="relative">
     <section class="pt-6 flex flex-col flex-wrap items-center content-around">
-      <Gravatar @user={{this.currentUser.user}} />
+      <div class="block h-36 w-36">
+        <Gravatar @user={{this.currentUser.user}} />
+      </div>
       <div class="text-gray-200 pt-4">
         <span class="text-2xl tracking-wide font-semibold uppercase text-outline-dark">{{this.currentUser.user.name}}</span>
       </div>

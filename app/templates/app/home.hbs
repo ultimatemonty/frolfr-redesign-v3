@@ -1,1 +1,94 @@
-<h1>HOME</h1>
+<div id="user-content-menu">
+  <div class="flex justify-around items-stretch border-b-2 border-gray-400 border-opacity-70 {{if this.showRounds "
+    bg-gray-100 text-gray-900" "bg-gray-300 text-gray-400" }}">
+    <button class=" py-4 w-1/2 text-center border-r-2 border-gray-400 border-opacity-70" role="button" type="button"
+      {{on "click" this.toggleRounds}}>
+      <span class="uppercase text-sm font-semibold">Recent Rounds</span>
+    </button>
+    <button class="py-4 w-1/2 text-center {{if this.showFeed " bg-gray-100 text-gray-900" "bg-gray-300 text-gray-400 " }}"
+      role="button" type="button" {{on "click" this.toggleFeed}}>
+      <span class="uppercase text-sm font-semibold">Feed</span>
+    </button>
+  </div>
+</div>
+<div id="user-content" class="flex flex-col">
+  {{#if this.showRounds}}
+    {{#each @model as |round|}}
+      <LinkTo @route="app.round" @model={{round}}>
+        <div class="flex flex-row p-2 border-b-2 border-gray-300 flex-wrap">
+          <div class="flex flex-row items-stretch w-full">
+            <div class="w-2/5 text-center text-4xl py-2">
+              {{#each round.scorecards as |scorecard|}}
+                {{#let (load scorecard.user) as |player|}}
+                  {{#if player.isLoaded}}
+                    {{#if (eq player.value.id this.currentUser.user.id)}}
+                      <span class="{{if (lte scorecard.score 0) "text-green-400" "text-red-400"}}">{{scorecard.score}}</span>
+                    {{/if}}
+                  {{/if}}
+                {{/let}}
+              {{/each}}
+            </div>
+            <div class="w-3/5 px-2">
+              <span class="block text-2xl tracking-wide">{{nice-date round.createdAt}}</span>
+              <span class="block">
+                <span class="inline-block text-sm font-bold tracking-wide">{{round.course.name}}</span>
+                <span class="inline-block text-sm text-gray-500 font-semibold tracking-wide pl-2">&bull; 2nd</span>
+              </span>
+            </div>
+          </div>
+          <div class="flex flex-row w-full pt-3">
+            <div class="w-2/5"></div>
+            <div class="w-3/5 justify-around">
+            {{#each round.scorecards as |scorecard index|}}
+              {{#let (load scorecard.user) as |player|}}
+                {{#if player.isLoaded}}
+                  <div class="h-8 w-8 inline-block">
+                    <Gravatar @user={{player.value}} @size="20" />
+                  </div>
+                {{/if}}
+              {{/let}}
+            {{/each}}
+            </div>
+          </div>
+        </div>
+      </LinkTo>
+    {{/each}}
+
+
+
+      {{!-- <div class="w-1/5 text-center text-4xl py-2 text-green-400">
+        -4
+      </div>
+      <div class="w-3/5 px-2">
+        <span class="block text-2xl tracking-wide">August 23, 2011</span>
+        <span class="block">
+          <span class="inline-block text-sm font-bold tracking-wide">Oregon Park</span><span
+            class="inline-block text-sm text-gray-500 font-semibold tracking-wide pl-2">&bull; 2nd</span>
+        </span>
+      </div>
+      <div class="w-1/5">
+        Players
+      </div>
+    </div>
+    <div class="flex flex-row items-stretch p-2 border-b-2 text-gray-900 border-gray-300">
+      <div class="w-1/5 text-center text-4xl py-2 text-red-400">
+        +4
+      </div>
+      <div class="w-3/5 px-2">
+        <span class="block text-2xl tracking-wide">August 23, 2011</span>
+        <span class="block">
+          <span class="inline-block text-sm font-bold tracking-wide">Oregon Park</span><span
+            class="inline-block text-sm text-gray-500 font-semibold tracking-wide pl-2">&bull; 2nd</span>
+        </span>
+      </div>
+      <div class="w-1/5">
+        Players
+      </div>
+    </div> --}}
+  {{/if}}
+  {{#if this.showFeed}}
+    <div class="flex flex-row items-stretch p-2 border-b-2 border-gray-300">
+      <h1>TODO</h1>
+    </div>
+  {{/if}}
+</div>
